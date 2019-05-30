@@ -1,0 +1,27 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/W-Ping/ec-config-repo.git
+          username:
+          password:
+          search-paths: /*
+          default-label: ${spring.profiles.active}
+          basedir: /data/config/ec-config-repo
+#
+encrypt:
+  key-store:
+    location: classpath:/ecc-service.jks
+    password: ecc-storepass-001
+    alias: ecc-key-store
+    secret: ec-keypass-001
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:root@ec-eureka:8761/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+#server:
+#  servlet:
+#    context-path: /eurekaServer

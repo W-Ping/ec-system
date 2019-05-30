@@ -1,0 +1,24 @@
+server:
+  port: 8010
+
+spring:
+  #  profiles:
+  #    active: dev
+  application:
+    name: @pom.artifactId@
+  rabbitmq:
+    host: ec-mq-rabbit
+    port: 5672
+    username: guest
+    password: guest
+
+
+  security:
+    user:
+      password: admin
+      name: admin
+  boot:
+    admin:
+      username: admin
+      password: admin
+

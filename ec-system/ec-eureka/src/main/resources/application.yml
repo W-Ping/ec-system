@@ -1,0 +1,29 @@
+server:
+  port: 8761
+spring:
+  cloud:
+    inetutils:
+      ignoredInterfaces:
+      - docker0
+      - veth.*
+      - VM.*
+      preferredNetworks:
+      - 192.168
+  application:
+    name: @pom.artifactId@
+eureka:
+  server:
+    enable-self-preservation: true
+  instance:
+    hostname: ec-eureka
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+security:
+  basic:
+    enabled: true
+  user:
+    name: root
+    password: root
