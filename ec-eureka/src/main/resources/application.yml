@@ -14,6 +14,7 @@ spring:
 eureka:
   server:
     enable-self-preservation: true
+    renewal-percent-threshold: 0
   instance:
     hostname: ec-eureka
   client:
